@@ -1,55 +1,407 @@
+"use client"; // Add this line
+
 import Image from "next/image";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+
+import SendIcon from "@mui/icons-material/Send";
+import { use, useEffect, useState } from "react";
+import { Divider } from "@mui/material";
+import { Graph, treeToGraphData } from "@antv/g6";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [inputConcept, setInputConcept] = useState("请输入");
+  const [outputConcept, setOutputConcept] = useState("");
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const [inputRE, setInputRE] = useState(
+    `"Wilfried \" Willi \" Schneider ( born 13 March 1963 in Mediaș , Transylvania ) is a German skeleton racer who competed from 1992 to 2002 . He won two medals in the men 's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999 . Schneider also finish ninth in the men 's skeleton event at the 2002 Winter Olympics in Salt Lake City . He won the men 's overall Skeleton World Cup title in 1997 - 8 . After retiring from competition Schneider became a coach , leading the Canadian skeleton team to three medals at the 2006 Winter Olympics in Turin ( a gold for Duff Gibson , a silver for Jeff Pain and a bronze for Melissa Hollingsworth ) , and coaching Jon Montgomery to victory in the 2010 Winter Olympics in Vancouver , British Columbia , Canada . In July 2012 Schneider agreed a two - year contract to coach the Russian skeleton team ."`
+  );
+  const [outputRE, setOutputRE] = useState("");
+
+  const [inputKnowledge, setInputKnowledge] = useState(
+    "Russia prepares to resume major missile strikes on Ukraine’s energy infrastructure after the winter heating season starts, the Secretary of the National Security and Defense Council of Ukraine said.Russian forces have advanced in the city of Toretsk in Donetsk region.Ukrainian military said the Russian forces used seven S-300/400 missiles to strike the region."
+  );
+  const [outputKnowledge, setOutputKnowledge] = useState("");
+
+  const [inputConflict, setInputConflict] = useState(
+    "(UNIFIL, will continue to stay, southern Lebanon)和(UNIFIL, will withdraw, southern Lebanon)"
+  );
+  const [outputConflict, setOutputConflict] = useState("");
+  const clickConcept = () => {
+    // 请求：
+    setOutputConcept("结果是输出");
+  };
+  const clickRE = () => {
+    // 请求：
+    setOutputRE(`
+      [["2002 Winter Olympics", "P580", "2002"], ["2002 Winter Olympics", "P582", "2002"], ["2002 Winter Olympics", "P276", "Salt Lake City"], ["2006 Winter Olympics", "P276", "Turin"], ["Duff Gibson", "P1344", "2006 Winter Olympics"], ["Duff Gibson", "P27", "Canadian"], ["Jeff Pain", "P1344", "2006 Winter Olympics"], ["Jeff Pain", "P27", "Canadian"], ["Melissa Hollingsworth", "P1344", "2006 Winter Olympics"], ["Melissa Hollingsworth", "P27", "Canadian"], ["Jon Montgomery", "P27", "Canadian"], ["Vancouver", "P17", "Canada"], ["British Columbia", "P17", "Canada"], ["British Columbia", "P131", "Canada"], ["Canada", "P150", "British Columbia"], ["Wilfried \" Willi \" Schneider", "P569", "13 March 1963"], ["Wilfried \" Willi \" Schneider", "P1344", "2002 Winter Olympics"], ["Wilfried \" Willi \" Schneider", "P19", "Mediaș"], ["Wilfried \" Willi \" Schneider", "P27", "German"], ["Canadian", "P150", "British Columbia"], ["Mediaș", "P131", "Transylvania"], ["Melissa Hollingsworth", "P27", "Canada"], ["Jon Montgomery", "P27", "Canada"], ["British Columbia", "P131", "Canadian"], ["Vancouver", "P17", "Canadian"]] 
+      `);
+  };
+  const clickKnowledge = () => {
+    // 请求：
+    setOutputKnowledge(`
+      fast (biencoder) predictions:
+
+russia
+id:12594
+title:Russia
+text: Russia (), or the Russian Federation (), is a transcontinental country in Eastern Europe and North Asia. At , Russia is by a considerable margin the largest country in the world by area, covering more than one-eighth of the Earth's inhabited land area, an
+
+ukraine
+id:15756
+title:Ukraine
+text: Ukraine (; ), sometimes called the Ukraine, is a country in Eastern Europe. Excluding Crimea, Ukraine has a population of about 42.5 million, making it the 32nd most populous country in the world. Its capital and largest city is Kiev. Ukrainian is the off
+
+national security and defense council of ukraine
+id:2172665
+title:National Security and Defense Council of Ukraine
+text: The National Security and Defense Council of Ukraine () or NSDC (), is an advisory state body to the President of Ukraine.  It is a state agency tasked with developing a policy of national security on domestic and international matters in advising the Pre
+
+said.russian
+id:1354005
+title:Declaration of State Sovereignty of Ukraine
+text: The Declaration of State Sovereignty of Ukraine () was adopted on July 16, 1990 by the recently elected parliament of Ukrainian SSR by a vote of 355 for and four against.  The document decreed that Ukrainian SSR laws took precedence over the laws of the U
+
+toretsk
+id:1220295
+title:Toretsk
+text: Toretsk (; ), formerly Dzerzhynsk (; ), is a city of oblast significance in Donetsk Oblast (province) of Ukraine. Population: . 
+
+donetsk
+id:220576
+title:Donetsk
+text: Donetsk ( ; ; former names: Aleksandrovka, Hughesovka, Yuzovka, Stalino (see also: )) is an industrial city in Eastern Ukraine and the capital city of the unrecognized Donetsk People's Republic, located on the Kalmius River. The population was estimated a
+
+region.ukrainian
+id:15756
+title:Ukraine
+text: Ukraine (; ), sometimes called the Ukraine, is a country in Eastern Europe. Excluding Crimea, Ukraine has a population of about 42.5 million, making it the 32nd most populous country in the world. Its capital and largest city is Kiev. Ukrainian is the off
+
+russian
+id:12594
+title:Russia
+text: Russia (), or the Russian Federation (), is a transcontinental country in Eastern Europe and North Asia. At , Russia is by a considerable margin the largest country in the world by area, covering more than one-eighth of the Earth's inhabited land area, an
+
+s-300
+id:216202
+title:S-300 missile system
+text: The S-300 (NATO reporting name SA-10 Grumble) is a series of initially Soviet and later Russian long range surface-to-air missile systems produced by NPO Almaz, based on the initial S-300P version. The S-300 system was developed to defend against aircraft
+      `);
+  };
+  const clickConflict = () => {
+    // 请求：
+    setOutputConflict(
+      "该冲突为关系冲突，保留(UNIFIL, will continue to stay, southern Lebanon)三元组"
+    );
+  };
+
+  const convertToTree = (input) => {
+    let output = "";
+    return output;
+  };
+
+  /**
+   * If the node is a leaf node
+   * @param {*} d - node data
+   * @returns {boolean} - whether the node is a leaf node
+   */
+  function isLeafNode(d) {
+    return !d.children || d.children.length === 0;
+  }
+
+  useEffect(() => {
+    // fetch(
+    //   "https://gw.alipayobjects.com/os/antvdemo/assets/data/algorithm-category.json"
+    // )
+    //   .then((res) => res.json())
+    new Promise((resolve) => {
+      resolve(
+        JSON.parse(`
+{
+  "id": "Modeling Methods",
+  "children": [
+    {
+      "id": "Classification",
+      "children": [
+        { "id": "Logistic regression" },
+        { "id": "Linear discriminant analysis" },
+        { "id": "Rules" },
+        { "id": "Decision trees" },
+        { "id": "Naive Bayes" },
+        { "id": "K nearest neighbor" },
+        { "id": "Probabilistic neural network" },
+        { "id": "Support vector machine" }
+      ]
+    },
+    {
+      "id": "Consensus",
+      "children": [
+        {
+          "id": "Models diversity",
+          "children": [
+            { "id": "Different initializations" },
+            { "id": "Different parameter choices" },
+            { "id": "Different architectures" },
+            { "id": "Different modeling methods" },
+            { "id": "Different training sets" },
+            { "id": "Different feature sets" }
+          ]
+        },
+        {
+          "id": "Methods",
+          "children": [
+            { "id": "Classifier selection" },
+            { "id": "Classifier fusion" }
+          ]
+        },
+        {
+          "id": "Common",
+          "children": [
+            { "id": "Bagging" },
+            { "id": "Boosting" },
+            { "id": "AdaBoost" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Regression",
+      "children": [
+        { "id": "Multiple linear regression" },
+        { "id": "Partial least squares" },
+        { "id": "Multi-layer feedforward neural network" },
+        { "id": "General regression neural network" },
+        { "id": "Support vector regression" }
+      ]
+    }
+  ]
+}`)
+      );
+    }).then((data) => {
+      // FIXME: Hack
+      window.document.querySelector("#container").innerHTML = "";
+      const graph = new Graph({
+        container: "container",
+        autoFit: "view",
+        data: treeToGraphData(data),
+        behaviors: [
+          "drag-canvas",
+          "zoom-canvas",
+          "drag-element",
+          "collapse-expand",
+        ],
+        node: {
+          style: {
+            labelText: (d) => d.id,
+            labelPlacement: (d) => (isLeafNode(d) ? "right" : "left"),
+            labelBackground: true,
+            ports: [{ placement: "right" }, { placement: "left" }],
+          },
+          animation: {
+            enter: false,
+          },
+        },
+        edge: {
+          type: "cubic-horizontal",
+          animation: {
+            enter: false,
+          },
+        },
+        layout: {
+          type: "compact-box",
+          direction: "LR",
+          getHeight: function getHeight() {
+            return 32;
+          },
+          getWidth: function getWidth() {
+            return 32;
+          },
+          getVGap: function getVGap() {
+            return 10;
+          },
+          getHGap: function getHGap() {
+            return 100;
+          },
+        },
+      });
+
+      graph.render();
+    });
+    // fetch('https://assets.antv.antgroup.com/g6/graph.json')
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     const graph = new Graph({
+    //       container: 'container',
+    //       autoFit: 'view',
+    //       data,
+    //       node: {
+    //         style: {
+    //           size: 10,
+    //         },
+    //         palette: {
+    //           field: 'group',
+    //           color: 'tableau',
+    //         },
+    //       },
+    //       layout: {
+    //         type: 'd3-force',
+    //         manyBody: {},
+    //         x: {},
+    //         y: {},
+    //       },
+    //       behaviors: ['drag-canvas', 'zoom-canvas', 'drag-element'],
+    //     });
+
+    //     graph.render();
+    //   });
+  }, [outputConcept]);
+  return (
+    <div className="flex flex-col justify-center">
+      <main className="flex flex-col justify-center mt-5">
+        <div className="flex flex-row justify-center pr-10 pl-10">
+          <TextField
+            fullWidth
+            id="filled-multiline-static"
+            label="输入"
+            value={inputConcept}
+            onChange={(event) => setInputConcept(event.target.value)}
+            multiline
+            rows={8}
+            variant="filled"
+          />
+          <div className="mr-5 ml-5 mt-20 w-1/6">
+            <Button
+              color="error"
+              variant="contained"
+              endIcon={<SendIcon />}
+              onClick={clickConcept}
+            >
+              概念抽取
+            </Button>
+          </div>
+          <TextField
+            fullWidth
+            id="filled-multiline-static"
+            label="输出"
+            multiline
+            disabled
+            rows={8}
+            value={outputConcept}
+            variant="filled"
+          />
+        </div>
+        <div className="mt-2 mb-2">
+          <Divider />
+        </div>
+
+        <div className="flex flex-row justify-center pr-10 pl-10">
+          <TextField
+            fullWidth
+            id="filled-multiline-static"
+            label="输入"
+            value={inputRE}
+            onChange={(event) => setInputRE(event.target.value)}
+            multiline
+            rows={8}
+            variant="filled"
+          />
+          <div className="mr-5 ml-5 mt-20 w-1/6">
+            <Button
+              variant="contained"
+              endIcon={<SendIcon />}
+              onClick={clickRE}
+            >
+              关系抽取
+            </Button>
+          </div>
+          <TextField
+            fullWidth
+            id="filled-multiline-static"
+            label="输出"
+            multiline
+            disabled
+            rows={8}
+            value={outputRE}
+            variant="filled"
+          />
+        </div>
+        <div className="mt-2 mb-2">
+          <Divider />
+        </div>
+
+        <div className="flex flex-row justify-center pr-10 pl-10">
+          <TextField
+            fullWidth
+            id="filled-multiline-static"
+            label="输入"
+            multiline
+            value={inputKnowledge}
+            onChange={(event) => setInputKnowledge(event.target.value)}
+            rows={8}
+            variant="filled"
+          />
+          <div className="mr-5 ml-5 mt-20 w-1/6">
+            <Button
+              color="warning"
+              variant="contained"
+              endIcon={<SendIcon />}
+              onClick={clickKnowledge}
+            >
+              知识消歧
+            </Button>
+          </div>
+          <TextField
+            fullWidth
+            id="filled-multiline-static"
+            label="输出"
+            multiline
+            disabled
+            rows={8}
+            value={outputKnowledge}
+            variant="filled"
+          />
+        </div>
+        <div className="mt-2 mb-2 ">
+          <Divider />
+        </div>
+
+        <div className="flex flex-row justify-center pr-10 pl-10">
+          <TextField
+            fullWidth
+            id="filled-multiline-static"
+            label="输入"
+            multiline
+            value={inputConflict}
+            onChange={(event) => setInputConflict(event.target.value)}
+            rows={8}
+            variant="filled"
+          />
+          <div className="mr-5 ml-5 mt-20 w-1/6">
+            <Button
+              color="success"
+              variant="contained"
+              endIcon={<SendIcon />}
+              onClick={clickConflict}
+            >
+              冲突消解
+            </Button>
+          </div>
+          <TextField
+            fullWidth
+            id="filled-multiline-static"
+            label="输出"
+            multiline
+            disabled
+            rows={8}
+            value={outputConflict}
+            variant="filled"
+          />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
+      {/* style={{ border: "2px solid grey" }} */}
+      <div id="container"></div>
+
+      <footer className="mt-20 row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
@@ -58,12 +410,12 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src="/file.svg"
-            alt="File icon"
+            src="/SEU.svg"
+            alt="SEU icon"
             width={16}
             height={16}
           />
-          Learn
+          SEU
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -78,7 +430,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Examples
+          173
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -93,7 +445,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Go to nextjs.org →
+          WDS →
         </a>
       </footer>
     </div>
