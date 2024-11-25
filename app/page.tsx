@@ -10,7 +10,9 @@ import { Divider } from "@mui/material";
 import { Graph, treeToGraphData } from "@antv/g6";
 
 export default function Home() {
-  const [inputConcept, setInputConcept] = useState("请输入");
+  const [inputConcept, setInputConcept] = useState(
+    "The Army is the parent branch of the military, with the Navy serving as one of its main divisions. Within the Navy, there are several specialized groups, including those who operate Surface Ships and those who serve in the Marines, a force designed to provide power projection from the sea utilizing the mobility of the naval fleet. Additionally, the Navy is also home to Submarine Soldiers, trained to carry out missions beneath the waves. Meanwhile, the Army itself has a number of elite groups, including Special Forces, highly trained operatives capable of conducting a variety of missions, often behind enemy lines."
+  );
   const [outputConcept, setOutputConcept] = useState("");
 
   const [inputRE, setInputRE] = useState(
@@ -29,7 +31,9 @@ export default function Home() {
   const [outputConflict, setOutputConflict] = useState("");
   const clickConcept = () => {
     // 请求：
-    setOutputConcept("结果是输出");
+    setOutputConcept(
+      "Army, navy\nArmy, navy, surface ships\nArmy, navy, marines\nArmy, navy, submarine soldiers\nArmy, special forces"
+    );
   };
   const clickRE = () => {
     // 请求：
@@ -96,8 +100,39 @@ text: The S-300 (NATO reporting name SA-10 Grumble) is a series of initially Sov
   };
 
   const convertToTree = (input) => {
-    let output = "";
-    return output;
+    // 解析输入，按行分割并将每行的节点解析成数组
+    const lines = input
+      .split("\n")
+      .map((line) => line.split(",").map((node) => node.trim()));
+
+    // 构建根节点
+    const root = {};
+
+    // 构建树的递归函数
+    const addNode = (path, tree) => {
+      const [current, ...rest] = path;
+      if (!tree[current]) {
+        tree[current] = { id: current, children: {} };
+      }
+      if (rest.length > 0) {
+        addNode(rest, tree[current].children);
+      }
+    };
+
+    // 遍历每行数据构建树
+    lines.forEach((path) => addNode(path, root));
+
+    // 将树从对象形式转换为数组形式
+    const convertToArray = (node) => {
+      const result = { id: node.id };
+      if (Object.keys(node.children).length > 0) {
+        result.children = Object.values(node.children).map(convertToArray);
+      }
+      return result;
+    };
+
+    // 返回最终的树结构
+    return convertToArray(Object.values(root)[0]);
   };
 
   /**
@@ -116,66 +151,67 @@ text: The S-300 (NATO reporting name SA-10 Grumble) is a series of initially Sov
     //   .then((res) => res.json())
     new Promise((resolve) => {
       resolve(
-        JSON.parse(`
-{
-  "id": "Modeling Methods",
-  "children": [
-    {
-      "id": "Classification",
-      "children": [
-        { "id": "Logistic regression" },
-        { "id": "Linear discriminant analysis" },
-        { "id": "Rules" },
-        { "id": "Decision trees" },
-        { "id": "Naive Bayes" },
-        { "id": "K nearest neighbor" },
-        { "id": "Probabilistic neural network" },
-        { "id": "Support vector machine" }
-      ]
-    },
-    {
-      "id": "Consensus",
-      "children": [
-        {
-          "id": "Models diversity",
-          "children": [
-            { "id": "Different initializations" },
-            { "id": "Different parameter choices" },
-            { "id": "Different architectures" },
-            { "id": "Different modeling methods" },
-            { "id": "Different training sets" },
-            { "id": "Different feature sets" }
-          ]
-        },
-        {
-          "id": "Methods",
-          "children": [
-            { "id": "Classifier selection" },
-            { "id": "Classifier fusion" }
-          ]
-        },
-        {
-          "id": "Common",
-          "children": [
-            { "id": "Bagging" },
-            { "id": "Boosting" },
-            { "id": "AdaBoost" }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Regression",
-      "children": [
-        { "id": "Multiple linear regression" },
-        { "id": "Partial least squares" },
-        { "id": "Multi-layer feedforward neural network" },
-        { "id": "General regression neural network" },
-        { "id": "Support vector regression" }
-      ]
-    }
-  ]
-}`)
+        //         JSON.parse(`
+        // {
+        //   "id": "Modeling Methods",
+        //   "children": [
+        //     {
+        //       "id": "Classification",
+        //       "children": [
+        //         { "id": "Logistic regression" },
+        //         { "id": "Linear discriminant analysis" },
+        //         { "id": "Rules" },
+        //         { "id": "Decision trees" },
+        //         { "id": "Naive Bayes" },
+        //         { "id": "K nearest neighbor" },
+        //         { "id": "Probabilistic neural network" },
+        //         { "id": "Support vector machine" }
+        //       ]
+        //     },
+        //     {
+        //       "id": "Consensus",
+        //       "children": [
+        //         {
+        //           "id": "Models diversity",
+        //           "children": [
+        //             { "id": "Different initializations" },
+        //             { "id": "Different parameter choices" },
+        //             { "id": "Different architectures" },
+        //             { "id": "Different modeling methods" },
+        //             { "id": "Different training sets" },
+        //             { "id": "Different feature sets" }
+        //           ]
+        //         },
+        //         {
+        //           "id": "Methods",
+        //           "children": [
+        //             { "id": "Classifier selection" },
+        //             { "id": "Classifier fusion" }
+        //           ]
+        //         },
+        //         {
+        //           "id": "Common",
+        //           "children": [
+        //             { "id": "Bagging" },
+        //             { "id": "Boosting" },
+        //             { "id": "AdaBoost" }
+        //           ]
+        //         }
+        //       ]
+        //     },
+        //     {
+        //       "id": "Regression",
+        //       "children": [
+        //         { "id": "Multiple linear regression" },
+        //         { "id": "Partial least squares" },
+        //         { "id": "Multi-layer feedforward neural network" },
+        //         { "id": "General regression neural network" },
+        //         { "id": "Support vector regression" }
+        //       ]
+        //     }
+        //   ]
+        // }`)
+        JSON.parse(JSON.stringify(convertToTree(outputConcept), null, 2))
       );
     }).then((data) => {
       // FIXME: Hack
