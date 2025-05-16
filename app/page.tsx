@@ -143,7 +143,7 @@ function Flow1aPanel() {
   const staticTable = (
     <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <Paper elevation={3} sx={{ flex: 1, minWidth: 360, maxWidth: 480, height: 500, bgcolor: '#fff5f5', p: 0, borderRadius: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1.5px solid #e0dada', boxShadow: '0 2px 12px #f3eaea', justifyContent: 'flex-start', overflow: 'hidden' }}>
-        <Box sx={{ width: '100%', height: 500, p: 3, bgcolor: '#fff5f5', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
+        <Box sx={{ width: '100%', height: 442, p: 3, bgcolor: '#fff5f5', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           <Box sx={{ width: '100%', maxHeight: 440, overflowY: 'auto', bgcolor: '#fff', borderRadius: 2, boxShadow: 'none', border: '1px solid #eee' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', background: '#fff' }}>
               <thead>
@@ -254,7 +254,7 @@ function Flow1aPanel() {
             }}
             onClick={handleUploadClick}
           >
-            上传...
+            上传/更新
           </button>
         </Box>
       </Box>
