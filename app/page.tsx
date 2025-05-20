@@ -7,7 +7,8 @@ import { useState, useRef } from "react";
 import Flow3A1 from "./flow3a1";   // ← 新增
 import Flow3A2 from "./flow3a2";
 import Flow3C from "@/app/flow3c";   // ← 新增
-
+import Flow1C from "./flow1c";   // ← 新增
+import Flow1B from "./flow1b";
 
 // 定义类型，支持可选render属性
 interface FlowContentItem {
@@ -21,7 +22,7 @@ const courseFlow = [
     title: "知识模型构建",
     items: [
       { label: "领域概念和关系抽取", color: "#4CAF50", href: "/flow1a" },
-      { label: "树状图展示", color: "#4CAF50", href: "/flow1b" },
+      { label: "图谱展示", color: "#4CAF50", href: "/flow1b" },
       { label: "指标展示", color: "#4CAF50", href: "/flow1c" },
     ],
   },
@@ -44,7 +45,7 @@ const courseFlow = [
   },
 ];
 
-const datasets = ["数据集a", "数据集b", "数据集c"];
+const datasets = ["数据集a", "数据集c"];
 
 // 独立的上传卡片组件，Hooks只能在组件顶层调用
 function Flow1aPanel() {
@@ -326,11 +327,11 @@ const flowContent: Record<string, FlowContentItem> = {
   },
   flow1b: {
     title: "树状图展示",
-    content: "这里是课题一流程 b 的内容页面。",
+    render: () => <Flow1B />,
   },
   flow1c: {
     title: "指标展示",
-    content: "这里是课题一流程 c 的内容页面。",
+    render: () => <Flow1C />,
   },
   flow2a: {
     title: "课题二流程 a",
