@@ -1,0 +1,12 @@
+import { Box, Typography } from "@mui/material";
+
+export default function Flow1C() {
+  return (
+    <Box sx={{ p: 6, minHeight: '100vh', bgcolor: '#f8f6f6', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+      <Typography variant="h4" fontWeight={700} mb={3}>
+        课题一流程 c
+      </Typography>
+      <Typography variant="body1">这里是课题一流程 c 的内容页面。</Typography>
+    </Box>
+  );
+}
