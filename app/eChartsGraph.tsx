@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
-import type { ECElementEvent } from 'echarts/types/util/types';
 
 interface EChartsGraphProps {
   data: {
@@ -118,7 +117,8 @@ const EChartsGraph: React.FC<EChartsGraphProps> = ({ data }) => {
                     },
 
                     tooltip: {
-                        formatter: function (params:ECElementEvent) {
+                        // @ts-ignore: 跳过下一行类型检查
+                        formatter: function (params: any) {
                             if (params.dataType === 'edge') {
                                 // 如果是边，返回边的 name 和 timestamp
                                 return `${params.data.name}: ${params.data.timestamp}`;
