@@ -1,0 +1,374 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "name": "俄罗斯-2018/09",
+      "time": "2018-09",
+      "category": 0
+    },
+    {
+      "id": 1,
+      "name": "乌克兰-2018/09",
+      "time": "2018-09",
+      "category": 0
+    },
+    {
+      "id": 2,
+      "name": "乌克兰-2018/10",
+      "time": "2018-10",
+      "category": 1
+    },
+    {
+      "id": 3,
+      "name": "俄罗斯-2018/10",
+      "time": "2018-10",
+      "category": 1
+    },
+    {
+      "id": 4,
+      "name": "日本-2018/09",
+      "time": "2018-09",
+      "category": 0
+    },
+    {
+      "id": 5,
+      "name": "土耳其-2018/09",
+      "time": "2018-09",
+      "category": 0
+    },
+    {
+      "id": 6,
+      "name": "联合国大会-2018/09",
+      "time": "2018-09",
+      "category": 0
+    },
+    {
+      "id": 7,
+      "name": "联合国-2018/09",
+      "time": "2018-09",
+      "category": 0
+    },
+    {
+      "id": 8,
+      "name": "乌克兰国家通讯社-2018/09",
+      "time": "2018-09",
+      "category": 0
+    },
+    {
+      "id": 9,
+      "name": "英国-2018/09",
+      "time": "2018-09",
+      "category": 0
+    },
+    {
+      "id": 10,
+      "name": "叙利亚-2018/09",
+      "time": "2018-09",
+      "category": 0
+    },
+    {
+      "id": 11,
+      "name": "美国-2018/09",
+      "time": "2018-09",
+      "category": 0
+    },
+    {
+      "id": 12,
+      "name": "军队 (乌克兰)-2018/09",
+      "time": "2018-09",
+      "category": 0
+    },
+    {
+      "id": 13,
+      "name": "联合国安理会-2018/09",
+      "time": "2018-09",
+      "category": 0
+    },
+    {
+      "id": 14,
+      "name": "中国-2018/09",
+      "time": "2018-09",
+      "category": 0
+    },
+    {
+      "id": 15,
+      "name": "乌克兰国家通讯社-2018/10",
+      "time": "2018-10",
+      "category": 1
+    },
+    {
+      "id": 16,
+      "name": "塞尔维亚-2018/10",
+      "time": "2018-10",
+      "category": 1
+    },
+    {
+      "id": 17,
+      "name": "韩国-2018/10",
+      "time": "2018-10",
+      "category": 1
+    },
+    {
+      "id": 18,
+      "name": "格鲁吉亚-2018/10",
+      "time": "2018-10",
+      "category": 1
+    },
+    {
+      "id": 19,
+      "name": "波兰-2018/10",
+      "time": "2018-10",
+      "category": 1
+    },
+    {
+      "id": 20,
+      "name": "民兵组织 (乌克兰)-2018/10",
+      "time": "2018-10",
+      "category": 1
+    },
+    {
+      "id": 21,
+      "name": "英国-2018/10",
+      "time": "2018-10",
+      "category": 1
+    },
+    {
+      "id": 22,
+      "name": "军队 (乌克兰)-2018/10",
+      "time": "2018-10",
+      "category": 1
+    },
+    {
+      "id": 23,
+      "name": "军队 (叙利亚)-2018/10",
+      "time": "2018-10",
+      "category": 1
+    },
+    {
+      "id": 24,
+      "name": "叙利亚-2018/10",
+      "time": "2018-10",
+      "category": 1
+    }
+  ],
+  "links": [
+    {
+      "source": 0,
+      "target": 3,
+      "value": ""
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "value": ""
+    },
+    {
+      "source": 9,
+      "target": 3,
+      "value": ""
+    },
+     {
+      "source": 10,
+      "target": 22,
+      "value": ""
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "value": "使用常规军事力量",
+      "timestamp": "2018-10-01"
+    },
+    {
+      "source": 3,
+      "target": 2,
+      "value": "谴责",
+      "timestamp": "2018-10-01"
+    },
+    {
+      "source": 2,
+      "target": 15,
+      "value": "逮捕、拘留或起诉",
+      "timestamp": "2018-10-01"
+    },
+    {
+      "source": 16,
+      "target": 2,
+      "value": "拜访",
+      "timestamp": "2018-10-01"
+    },
+    {
+      "source": 2,
+      "target": 16,
+      "value": "表达会面或谈判的意愿",
+      "timestamp": "2018-10-01"
+    },
+    {
+      "source": 17,
+      "target": 2,
+      "value": "表示有意进行外交合作",
+      "timestamp": "2018-10-01"
+    },
+    {
+      "source": 2,
+      "target": 18,
+      "value": "开展外交合作",
+      "timestamp": "2018-10-01"
+    },
+    {
+      "source": 18,
+      "target": 3,
+      "value": "签署正式协议",
+      "timestamp": "2018-10-05"
+    },
+    {
+      "source": 19,
+      "target": 3,
+      "value": "表扬或认可",
+      "timestamp": "2018-10-01"
+    },
+    {
+      "source": 3,
+      "target": 20,
+      "value": "使用常规军事力量",
+      "timestamp": "2018-10-01"
+    },
+    {
+      "source": 20,
+      "target": 3,
+      "value": "使用非常规暴力",
+      "timestamp": "2018-10-04"
+    },
+    {
+      "source": 21,
+      "target": 3,
+      "value": "表示有意进行外交合作",
+      "timestamp": "2018-10-04"
+    },
+    {
+      "source": 22,
+      "target": 3,
+      "value": "使用常规军事力量",
+      "timestamp": "2018-10-05"
+    },
+    {
+      "source": 22,
+      "target": 23,
+      "value": "表扬或认可",
+      "timestamp": "2018-10-02"
+    },
+    {
+      "source": 23,
+      "target": 22,
+      "value": "用大炮和坦克作战",
+      "timestamp": "2018-10-28"
+    },
+    {
+      "source": 24,
+      "target": 22,
+      "value": "用大炮和坦克作战",
+      "timestamp": "2018-10-02"
+    },
+    {
+      "source": 22,
+      "target": 24,
+      "value": "调动或增加武装力量",
+      "timestamp": "2018-10-06"
+    },
+    {
+      "source": 0,
+      "target": 1,
+      "value": "拒绝",
+      "timestamp": "2018-09-28"
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "value": "接待来访",
+      "timestamp": "2018-09-28"
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "value": "签署正式协议",
+      "timestamp": "2018-09-28"
+    },
+    {
+      "source": 0,
+      "target": 6,
+      "value": "拜访",
+      "timestamp": "2018-09-28"
+    },
+    {
+      "source": 7,
+      "target": 0,
+      "value": "提出上诉或请求",
+      "timestamp": "2018-09-28"
+    },
+    {
+      "source": 0,
+      "target": 8,
+      "value": "逮捕、拘留或起诉",
+      "timestamp": "2018-09-28"
+    },
+    {
+      "source": 9,
+      "target": 0,
+      "value": "谴责",
+      "timestamp": "2018-09-28"
+    },
+    {
+      "source": 0,
+      "target": 10,
+      "value": "发表声明",
+      "timestamp": "2018-09-28"
+    },
+    {
+      "source": 1,
+      "target": 11,
+      "value": "开展外交合作",
+      "timestamp": "2018-09-28"
+    },
+    {
+      "source": 12,
+      "target": 1,
+      "value": "使用常规军事力量",
+      "timestamp": "2018-09-28"
+    },
+    {
+      "source": 13,
+      "target": 1,
+      "value": "表扬或认可",
+      "timestamp": "2018-09-29"
+    },
+    {
+      "source": 9,
+      "target": 13,
+      "value": "表扬或认可",
+      "timestamp": "2018-09-28"
+    },
+    {
+      "source": 11,
+      "target": 13,
+      "value": "表扬或认可",
+      "timestamp": "2018-09-28"
+    },
+    {
+      "source": 14,
+      "target": 13,
+      "value": "提出上诉或请求",
+      "timestamp": "2018-09-28"
+    },
+    {
+      "source": 0,
+      "target": 14,
+      "value": "商议",
+      "timestamp": "2018-09-28"
+    },
+    {
+      "source": 14,
+      "target": 7,
+      "value": "表扬或认可",
+      "timestamp": "2018-09-28"
+    }
+  ]
+}

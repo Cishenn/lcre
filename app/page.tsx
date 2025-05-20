@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import Flow3A1 from "./flow3a1";   // ← 新增
-import Flow3A2 from "./flow3a2";   // ← 新增
+import Flow3A2 from "./flow3a2";
+import Flow3C from "@/app/flow3c";   // ← 新增
 
 
 // 定义类型，支持可选render属性
@@ -358,6 +359,7 @@ const flowContent: Record<string, FlowContentItem> = {
   flow3c: {
     title: "课题三流程 c",
     content: "这里是课题三流程 c 的内容页面。",
+    render: () => <Flow3C />,
   },
 };
 
