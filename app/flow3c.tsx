@@ -6,7 +6,7 @@ export default function Flow3C() {
   const [knowledgeGraphData, setKnowledgeGraphData] = useState(null); // 存储知识图的数据
   const [isKnowledgeGraphVisible, setIsKnowledgeGraphVisible] = useState(false); // 控制知识图的显示状态
   const [selectedDataset, setSelectedDataset] = useState("graph_data.json"); // 当前选择的数据集
-
+// @ts-ignore: 跳过下一行类型检查
   const loadKnowledgeGraph = async (filePath) => {
     try {
       // 从指定文件路径加载数据
@@ -17,6 +17,7 @@ export default function Flow3C() {
       const data = await response.json();
 
       // 为每条边设置样式
+      // @ts-ignore: 跳过下一行类型检查
       data.links.forEach(link => {
         if (link.value === "") {
           // 如果 value 为空字符串，则设置为虚线
@@ -49,7 +50,7 @@ export default function Flow3C() {
   return (
     <Box sx={{ p: 0, minHeight: '100vh', bgcolor: '#f8f6f6', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: '1200px' }}>
       {/* 知识图显示区域 */}
-      {isKnowledgeGraphVisible && (
+      {isKnowledgeGraphVisible&& knowledgeGraphData && (
         <Box sx={{ position: 'relative', width: '100%', height: '600px', p: 0, m: 0 }}>
           {/* 数据集选择框 */}
           <Box sx={{ position: 'absolute', top: 0, left: 0, p: 1, zIndex: 1000 }}>

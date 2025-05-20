@@ -1,3 +1,10 @@
+/*
+ * @Author: Cishenn Lee
+ * @Date: 2025-05-20 21:13:47
+ * @LastEditTime: 2025-05-20 21:51:41
+ * @FilePath: \lcre\app\eChartsGraph.tsx
+ * @Description: 
+ */
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 
@@ -166,7 +173,7 @@ const EChartsGraph: React.FC<EChartsGraphProps> = ({ data }) => {
             ]
 
         };
-
+// @ts-ignore: 跳过下一行类型检查
       chart.setOption(option);
     }
   }, [data]);
