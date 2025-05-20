@@ -5,15 +5,17 @@
  * @FilePath: \lcre\app\flow1a.tsx
  * @Description: 
  */
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Paper } from "@mui/material";
 
 export default function Flow1A() {
   return (
-    <Box sx={{ p: 6, minHeight: '100vh', bgcolor: '#f8f6f6', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-      <Typography variant="h4" fontWeight={700} mb={3}>
-        课题一流程 a
-      </Typography>
-      <Typography variant="body1">这里是课题一流程 a 的内容页面。</Typography>
+    <Box sx={{ p: 4, minHeight: '100vh', bgcolor: '#f8f6f6', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+      <Paper elevation={4} sx={{ p: 4, borderRadius: 3, mb: 4, bgcolor: '#fff' }}>
+        <Typography variant="h4" fontWeight={700} mb={4}>
+          课题一流程 a
+        </Typography>
+        <Typography variant="body1">这里是课题一流程 a 的内容页面。</Typography>
+      </Paper>
     </Box>
   );
 }

@@ -45,7 +45,7 @@ const courseFlow = [
   },
 ];
 
-const datasets = ["数据集a", "数据集c"];
+const datasets = ["数据集a", "数据集b", "数据集c"];
 
 // 独立的上传卡片组件，Hooks只能在组件顶层调用
 function Flow1aPanel() {
@@ -148,15 +148,15 @@ function Flow1aPanel() {
   // 右侧内容区静态表格
   const staticTable = (
     <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <Paper elevation={3} sx={{ flex: 1, minWidth: 360, maxWidth: 480, height: 500, bgcolor: '#fff5f5', p: 0, borderRadius: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1.5px solid #e0dada', boxShadow: '0 2px 12px #f3eaea', justifyContent: 'flex-start', overflow: 'hidden' }}>
-        <Box sx={{ width: '100%', height: 442, p: 3, bgcolor: '#fff5f5', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <Box sx={{ width: '100%', maxHeight: 440, overflowY: 'auto', bgcolor: '#fff', borderRadius: 2, boxShadow: 'none', border: '1px solid #eee' }}>
+      <Paper elevation={3} sx={{flex: 1, minWidth: 420, maxWidth: 600, height: 580, bgcolor: '#f8f6f6', p: 3, borderRadius: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1.5px solid #e0dada', boxShadow: '0 2px 12px #f3eaea', justifyContent: 'flex-start', overflow: 'hidden' }}>
+        <Box sx={{ width: '100%', height: 522, p: 3, bgcolor: '#f8f6f6', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
+          <Box sx={{ width: '100%', maxHeight: 600, overflowY: 'auto', bgcolor: '#fff', borderRadius: 2, boxShadow: 'none', border: '1px solid #eee' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', background: '#fff' }}>
               <thead>
                 <tr>
-                  <th style={{ border: '1px solid #ccc', padding: 8, fontSize: 20, fontWeight: 700 }}>领域概念</th>
-                  <th style={{ border: '1px solid #ccc', padding: 8, fontSize: 20, fontWeight: 700 }}>上下位关系</th>
-                  <th style={{ border: '1px solid #ccc', padding: 8, fontSize: 20, fontWeight: 700 }}>概念属性关系</th>
+                  <th style={{ border: '1px solid #ccc', padding: 8, fontSize: 18, fontWeight: 700 }}>领域概念</th>
+                  <th style={{ border: '1px solid #ccc', padding: 8, fontSize: 18, fontWeight: 700 }}>上下位关系</th>
+                  <th style={{ border: '1px solid #ccc', padding: 8, fontSize: 18, fontWeight: 700 }}>概念属性关系</th>
                 </tr>
               </thead>
               <tbody>
@@ -199,13 +199,13 @@ function Flow1aPanel() {
   );
 
   return (
-    <Box sx={{ width: '100%', display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 6, justifyContent: 'center', alignItems: 'flex-start', p: 4, minHeight: 550 }}>
+    <Box sx={{ width: '100%', display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 6, justifyContent: 'center', alignItems: 'center', p: 4, minHeight: 550 }}>
       {/* 左侧卡片：上传文档 */}
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Paper elevation={3} sx={{ flex: 1, minWidth: 360, maxWidth: 480, height: 500, bgcolor: '#fff5f5', p: 0, borderRadius: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1.5px solid #e0dada', boxShadow: '0 2px 12px #f3eaea', justifyContent: 'flex-start', overflow: 'auto' }}>
-          <Box sx={{ flex: 1, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', p: 3 }}>
+        <Paper elevation={3} sx={{ flex: 1, minWidth: 420, maxWidth: 600, height: 580, bgcolor: '#f8f6f6', p: 3, borderRadius: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1.5px solid #e0dada', boxShadow: '0 2px 12px #f3eaea', justifyContent: 'flex-start', overflow: 'hidden' }}>
+          <Box sx={{ width: '100%', height: 522, p: 3, bgcolor: '#f8f6f6', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
             {!(fileName || fileContent !== "") && (
-              <Typography sx={{ color: '#ccc', fontSize: 32, textAlign: 'center', mb: 2 }}>
+              <Typography sx={{ color: '#ccc', fontSize: 32, textAlign: 'center', mb: 2, width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 上传文档 ...
               </Typography>
             )}
@@ -267,8 +267,8 @@ function Flow1aPanel() {
       {/* 右侧卡片：结果展示/表格 */}
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {!showTable ? (
-          <Paper elevation={3} sx={{ flex: 1, minWidth: 360, maxWidth: 480, height: 500, bgcolor: '#fff5f5', p: 0, borderRadius: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1.5px solid #e0dada', boxShadow: '0 2px 12px #f3eaea', justifyContent: 'center' }}>
-            <Box sx={{ flex: 1, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <Paper elevation={3} sx={{ flex: 1, minWidth: 420, maxWidth: 600, height: 580, bgcolor: '#f8f6f6', p: 3, borderRadius: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', border: '1.5px solid #e0dada', boxShadow: '0 2px 12px #f3eaea', justifyContent: 'flex-start', overflow: 'hidden' }}>
+            <Box sx={{ width: '100%', height: 522, p: 3, bgcolor: '#f8f6f6', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
               {loading ? (
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <Box sx={{ width: 48, height: 48, border: '4px solid #90caf9', borderTop: '4px solid #fff', borderRadius: '50%', animation: 'spin 1s linear infinite', mb: 2 }} />
@@ -276,7 +276,8 @@ function Flow1aPanel() {
                   <style>{`@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
                 </Box>
               ) : (
-                <Typography sx={{ color: '#ccc', fontSize: 28, textAlign: 'center' }}>
+                <Typography sx={{ color: '#ccc', fontSize: 32, textAlign: 'center', mb: 2, width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {/* <Typography sx={{ color: '#ccc', fontSize: 28, textAlign: 'center' }}></Typography> */}
                   结果将展示在这 ...
                 </Typography>
               )}
