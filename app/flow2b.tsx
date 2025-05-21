@@ -59,60 +59,68 @@ function Flow2B() {
     <Box sx={{ p: 6, minHeight: '100vh', bgcolor: '#f8f6f6', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
 
       
-      {/* 文件上传区 */}
-      <Box sx={{ width: '100%', maxWidth: 800, mb: 4, p: 3, bgcolor: 'white', borderRadius: 2 }}>
-        <Typography variant="h6" gutterBottom>输入/上传例子</Typography>
-        <Box sx={{ mb: 2 }}>
-          <textarea
-            value={fileContent}
-            onChange={(e) => setFileContent(e.target.value)}
-            placeholder="粘贴文本或上传文件..."
-            style={{ width: '100%', height: 150, padding: 10, borderRadius: 4, border: '1px solid #ddd' }}
-          />
-        </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-          <label htmlFor="file-upload" style={{ cursor: 'pointer', padding: 10, backgroundColor: '#f0f0f0', borderRadius: 4 }}>
-            选择文件上传
-            <input
-              id="file-upload"
-              type="file"
-              onChange={handleFileUpload}
-              style={{ display: 'none' }}
-            />
-          </label>
-        </Box>
-      </Box>
+<Box sx={{ width: '100%', display: 'flex', gap: 4, mb: 4, p: 3, bgcolor: 'white', borderRadius: 2 }}>
+  {/* 文件上传区 */}
+  <Box sx={{ maxWidth: 250, flex: 1 }}>
+    <Typography variant="h6" gutterBottom>
+      输入/上传例子
+    </Typography>
+    <Box sx={{ mb: 2 }}>
+      <textarea
+        value={fileContent}
+        onChange={(e) => setFileContent(e.target.value)}
+        placeholder="粘贴文本或上传文件..."
+        style={{ width: '100%', height: 150, padding: 10, borderRadius: 4, border: '1px solid #ddd' }}
+      />
+    </Box>
+    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+      <label htmlFor="file-upload" style={{ cursor: 'pointer', padding: 10, backgroundColor: '#f0f0f0', borderRadius: 4 }}>
+        选择文件上传
+        <input
+          id="file-upload"
+          type="file"
+          onChange={handleFileUpload}
+          style={{ display: 'none' }}
+        />
+      </label>
+    </Box>
+  </Box>
 
-      {/* 实体抽取区 */}
-      <Box sx={{ width: '100%', maxWidth: 800, mb: 4, p: 3, bgcolor: 'white', borderRadius: 2 }}>
-        <Typography variant="h6" gutterBottom>抽取出来的实体</Typography>
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-          {extractedEntities.map(entity => (
-            <Box key={entity} sx={{ p: 1, bgcolor: '#e3f2fd', borderRadius: 1 }}>
-              {entity}
-            </Box>
-          ))}
+  {/* 实体抽取区 */}
+  <Box sx={{ maxWidth: 250, flex: 1 }}>
+    <Typography variant="h6" gutterBottom>
+      抽取出来的实体
+    </Typography>
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+      {extractedEntities.map(entity => (
+        <Box key={entity} sx={{ p: 1, bgcolor: '#e3f2fd', borderRadius: 1 }}>
+          {entity}
         </Box>
-      </Box>
+      ))}
+    </Box>
+  </Box>
 
-      {/* 关系三元组区 */}
-      <Box sx={{ width: '100%', maxWidth: 800, mb: 4, p: 3, bgcolor: 'white', borderRadius: 2 }}>
-        <Typography variant="h6" gutterBottom>抽取出来的实体关系三元组</Typography>
-        <Box sx={{ width: '100%' }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1, bgcolor: '#f5f5f5', p: 1, borderRadius: 1 }}>
-            <Typography fontWeight="bold">实体1</Typography>
-            <Typography fontWeight="bold">关系</Typography>
-            <Typography fontWeight="bold">实体2</Typography>
-          </Box>
-          {entityRelations.map((relation, index) => (
-            <Box key={index} sx={{ display: 'flex', justifyContent: 'space-between', mb: 1, p: 1, borderRadius: 1 }}>
-              <Typography>{relation.entity1}</Typography>
-              <Typography>{relation.relation}</Typography>
-              <Typography>{relation.entity2}</Typography>
-            </Box>
-          ))}
-        </Box>
+  {/* 关系三元组区 */}
+  <Box sx={{ maxWidth: 250, flex: 1 }}>
+    <Typography variant="h6" gutterBottom>
+      抽取出来的实体关系三元组
+    </Typography>
+    <Box sx={{ width: '100%' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1, bgcolor: '#f5f5f5', p: 1, borderRadius: 1 }}>
+        <Typography fontWeight="bold">实体1</Typography>
+        <Typography fontWeight="bold">关系</Typography>
+        <Typography fontWeight="bold">实体2</Typography>
       </Box>
+      {entityRelations.map((relation, index) => (
+        <Box key={index} sx={{ display: 'flex', justifyContent: 'space-between', mb: 1, p: 1, borderRadius: 1 }}>
+          <Typography>{relation.entity1}</Typography>
+          <Typography>{relation.relation}</Typography>
+          <Typography>{relation.entity2}</Typography>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+</Box>
 
       {/* 指标计算区 */}
       <Box sx={{ width: '100%', maxWidth: 800, p: 3, bgcolor: 'white', borderRadius: 2 }}>
