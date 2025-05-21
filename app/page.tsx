@@ -10,7 +10,7 @@ import Flow3C from "@/app/flow3c";   // ← 新增
 import Flow1C from "./flow1c";   // ← 新增
 import Flow1B from "./flow1b";
 import Flow2A from "./flow2a";
-
+import Flow2B from "./flow2b";
 // 定义类型，支持可选render属性
 interface FlowContentItem {
   title: string;
@@ -341,7 +341,7 @@ const flowContent: Record<string, FlowContentItem> = {
   },
   flow2b: {
     title: "课题二流程 b",
-    content: "这里是课题二流程 b 的内容页面。",
+    render: () => <Flow2B />,
   },
   flow2c: {
     title: "课题二流程 c",
