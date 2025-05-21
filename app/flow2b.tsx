@@ -10,44 +10,6 @@ function Flow2B() {
   const [finalFormula, setFinalFormula] = useState('');
   const [calculationResult, setCalculationResult] = useState('');
 
-  // 处理文件上传
-  const handleFileUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        setFileContent(event.target.result);
-        // 这里可以添加文件解析和实体抽取的逻辑
-        // 模拟实体抽取
-        setTimeout(() => {
-          setExtractedEntities(['实体1', '实体2', '实体3']);
-          setEntityRelations([
-            { entity1: '实体1', relation: '关联', entity2: '实体2' },
-            { entity1: '实体2', relation: '包含', entity2: '实体3' }
-          ]);
-        }, 1000);
-      };
-      reader.readAsText(file);
-    }
-  };
-
-  // 添加指标
-  const addMetric = () => {
-    setMetrics([...metrics, { id: Date.now(), value: '' }]);
-  };
-
-  // 删除指标
-  const deleteMetric = (id) => {
-    setMetrics(metrics.filter(metric => metric.id !== id));
-  };
-
-  // 处理指标值变化
-  const handleMetricChange = (e, id) => {
-    setMetrics(metrics.map(metric => 
-      metric.id === id ? { ...metric, value: e.target.value } : metric
-    ));
-  };
-
   // 计算指标
   const calculateMetrics = () => {
     // 这里可以添加计算逻辑
@@ -79,7 +41,6 @@ function Flow2B() {
         <input
           id="file-upload"
           type="file"
-          onChange={handleFileUpload}
           style={{ display: 'none' }}
         />
       </label>
@@ -113,9 +74,6 @@ function Flow2B() {
       </Box>
       {entityRelations.map((relation, index) => (
         <Box key={index} sx={{ display: 'flex', justifyContent: 'space-between', mb: 1, p: 1, borderRadius: 1 }}>
-          <Typography>{relation.entity1}</Typography>
-          <Typography>{relation.relation}</Typography>
-          <Typography>{relation.entity2}</Typography>
         </Box>
       ))}
     </Box>
