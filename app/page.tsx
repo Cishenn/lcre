@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Typography, List, ListItem, ListItemText, Divider, Paper } from "@mui/material";
+import { Button, Box, Typography, List, ListItem, ListItemText, Divider, Paper } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef } from "react";
@@ -246,7 +246,7 @@ function Flow1aPanel() {
             style={{ display: 'none' }}
             onChange={handleFileChange}
           />
-          <button
+          {/* <button
             style={{
               background: '#42a5f5',
               color: '#fff',
@@ -262,7 +262,10 @@ function Flow1aPanel() {
             onClick={handleUploadClick}
           >
             上传/更新
-          </button>
+          </button> */}
+          <Button variant="outlined"
+          onClick={handleUploadClick}
+          >上传/更新</Button>
         </Box>
       </Box>
       {/* 右侧卡片：结果展示/表格 */}
@@ -289,7 +292,7 @@ function Flow1aPanel() {
         )}
         {/* 按钮区 */}
         <Box sx={{ width: 300, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2, mt: 3 }}>
-          <button
+          {/* <button
             style={{
               background: '#42a5f5',
               color: '#fff',
@@ -303,8 +306,14 @@ function Flow1aPanel() {
             }}
             onClick={handleBuild}
             disabled={loading}
-          >构建</button>
-          <button style={{
+          >构建</button> */}
+
+          <Button variant="outlined"
+                      onClick={handleBuild}
+            disabled={loading}
+          >构建</Button>
+          
+          {/* <button style={{
             background: '#42a5f5',
             color: '#fff',
             border: 'none',
@@ -314,7 +323,11 @@ function Flow1aPanel() {
             cursor: 'pointer',
             height: 44,
             transition: 'background 0.2s',
-          }} onClick={handleDownload}>下载</button>
+          }} onClick={handleDownload}>下载</button> */}
+
+          <Button variant="outlined"
+                      onClick={handleDownload}
+          >下载</Button>
         </Box>
       </Box>
     </Box>
