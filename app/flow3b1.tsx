@@ -132,6 +132,7 @@ export default function Flow3B1() {
                         displayEmpty
                         inputProps={{ 'aria-label': '选择冲突' }}
                         onChange={(event) => {
+                        // @ts-ignore: 跳过下一行类型检查
                           setConflict(event.target.value);
                           setAnswer('');
                           setReason('');

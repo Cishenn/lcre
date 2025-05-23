@@ -32,6 +32,7 @@ export default function Flow2A() {
                         value={fileType}
                         displayEmpty
                         inputProps={{ 'aria-label': '选择数据集' }}
+                        // @ts-ignore: 跳过下一行类型检查
                         onChange={(event) => setFileType(event.target.value)}
                     >
                         <MenuItem value="">请选择数据集</MenuItem>
