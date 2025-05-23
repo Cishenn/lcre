@@ -11,6 +11,9 @@ import Flow1C from "./flow1c";   // ← 新增
 import Flow1B from "./flow1b";
 import Flow2A from "./flow2a";
 import Flow2B from "./flow2b";
+import Flow3B1 from "./flow3b1";
+import Flow3B2 from "./flow3b2";
+
 // 定义类型，支持可选render属性
 interface FlowContentItem {
   title: string;
@@ -40,7 +43,8 @@ const courseFlow = [
     items: [
       { label: "课题三-实体链接展示", color: "#F44336", href: "/flow3a1" },
       { label: "课题三-数据指标展示", color: "#F44336", href: "/flow3a2" },
-      { label: "课题三流程", color: "#F44336", href: "/flow3b" },
+      { label: "课题三-冲突消解展示", color: "#F44336", href: "/flow3b1" },
+      { label: "课题三-冲突消解指标展示", color: "#F44336", href: "/flow3b2" },
       { label: "课题三流程", color: "#F44336", href: "/flow3c" },
     ],
   },
@@ -355,9 +359,13 @@ const flowContent: Record<string, FlowContentItem> = {
     title: "课题三-数据指标展示",
     render: () => <Flow3A2 />,      // ← 改这一行
   },
-  flow3b: {
+  flow3b1: {
     title: "课题三流程 b",
-    content: "这里是课题三流程 b 的内容页面。",
+    render: () => <Flow3B1 />,
+  },
+  flow3b2: {
+    title: "课题三流程 b",
+    render: () => <Flow3B2 />,
   },
   flow3c: {
     title: "课题三流程 c",
