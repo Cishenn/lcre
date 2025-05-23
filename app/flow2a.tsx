@@ -45,13 +45,40 @@ export default function Flow2A() {
             {/* 下载区域 */}
             <Box sx={{ mb: 4 }}>
                 <Box sx={{ display: 'flex', gap: 2, mb: 4, justifyContent: 'center' }}>
-                    <Button variant="outlined">
+                    <Button variant="outlined"
+                     onClick={() => {
+                            const link = document.createElement("a");
+                            link.href = "/new_train_revised-0417完整版.json"; // public 下的文件可直接访问
+                            link.download = "new_train_revised-0417完整版.json";
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                          }}
+                        >
                         点击下载训练集
                     </Button>
-                    <Button variant="outlined">
+                    <Button variant="outlined"
+                        onClick={() => {
+                            const link = document.createElement("a");
+                            link.href = "/new_dev_revised-0417.json"; // public 下的文件可直接访问
+                            link.download = "new_dev_revised-0417.json";
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                          }}
+                    >
                         点击下载验证集
                     </Button>
-                    <Button variant="outlined">
+                    <Button variant="outlined"
+                    onClick={() => {
+                            const link = document.createElement("a");
+                            link.href = "/new_test_revised-0417.json"; // public 下的文件可直接访问
+                            link.download = "new_test_revised-0417.json";
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                          }}
+                    >
                         点击下载测试集
                     </Button>
                 </Box>
