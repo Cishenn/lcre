@@ -31,21 +31,20 @@ const courseFlow = [
     ],
   },
   {
-    title: "课题二流程",
+    title: "关系抽取",
     items: [
-      { label: "课题二流程", color: "#4CAF50", href: "/flow2a" },
-      { label: "课题二流程", color: "#4CAF50", href: "/flow2b" },
-      { label: "课题二流程", color: "#F44336", href: "/flow2c" },
+      { label: "关系抽取数据集", color: "#4CAF50", href: "/flow2a" },
+      { label: "关系抽取", color: "#4CAF50", href: "/flow2b" },
     ],
   },
   {
-    title: "课题三流程",
+    title: "数据冲突消解与动态评估",
     items: [
-      { label: "课题三-实体链接展示", color: "#F44336", href: "/flow3a1" },
-      { label: "课题三-数据指标展示", color: "#F44336", href: "/flow3a2" },
-      { label: "课题三-冲突消解展示", color: "#F44336", href: "/flow3b1" },
-      { label: "课题三-冲突消解指标展示", color: "#F44336", href: "/flow3b2" },
-      { label: "课题三流程", color: "#F44336", href: "/flow3c" },
+      { label: "实体链接展示", color: "#F44336", href: "/flow3a1" },
+      { label: "数据指标展示", color: "#F44336", href: "/flow3a2" },
+      { label: "冲突消解展示", color: "#F44336", href: "/flow3b1" },
+      { label: "冲突消解指标展示", color: "#F44336", href: "/flow3b2" },
+      { label: "时间片", color: "#F44336", href: "/flow3c" },
     ],
   },
 ];
@@ -365,11 +364,11 @@ const flowContent: Record<string, FlowContentItem> = {
     content: "这里是课题二流程 c 的内容页面。",
   },
   flow3a1: {
-    title: "课题三-实体链接展示",
+    title: "实体链接展示",
     render: () => <Flow3A1 />,      // ← 改这一行
   },
   flow3a2: {
-    title: "课题三-数据指标展示",
+    title: "实体链接指标展示",
     render: () => <Flow3A2 />,      // ← 改这一行
   },
   flow3b1: {
