@@ -1,3 +1,10 @@
+/*
+ * @Author: Cishenn Lee
+ * @Date: 2025-05-16 10:26:46
+ * @LastEditTime: 2025-05-24 22:29:49
+ * @FilePath: \lcre\app\flow3c.tsx
+ * @Description: 
+ */
 import { Box, FormControl } from "@mui/material";
 import { useEffect, useState } from "react";
 import EChartsGraph from "./eChartsGraph";
@@ -7,7 +14,7 @@ export default function Flow3C() {
   const [isKnowledgeGraphVisible, setIsKnowledgeGraphVisible] = useState(false);
   const fixedDataset = "graph_data.json";
 
-
+                        // @ts-ignore: 跳过下一行类型检查
   const loadKnowledgeGraph = async (filePath) => {
     try {
       const response = await fetch(filePath);
